@@ -1,0 +1,175 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.wrapper { width: 100%; max-width: 880px; margin: 0 auto; }
+
+.container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 25px 45px -12px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.header { text-align: center; margin-bottom: 2rem; }
+
+.logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 0.5rem; }
+
+.logo-icon {
+    font-size: 2.4rem; color: #3b82f6;
+    background: rgba(59,130,246,0.2); padding: 12px; border-radius: 2rem;
+}
+
+.logo h1 {
+    font-size: 2.2rem; font-weight: 700;
+    background: linear-gradient(120deg, #ffffff, #94a3b8);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.logo h1 span {
+    background: linear-gradient(120deg, #3b82f6, #60a5fa);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.tagline { color: #cbd5e6; font-size: 1rem; }
+
+.card {
+    background: #0f172a; border-radius: 1.75rem; padding: 2rem 1.8rem;
+    box-shadow: 0 20px 35px -10px rgba(0,0,0,0.4); border: 1px solid #334155;
+}
+
+.url-input-wrapper {
+    display: flex; gap: 12px; align-items: center; background: #1e293b;
+    border-radius: 80px; padding: 0.4rem 0.4rem 0.4rem 1rem; border: 1px solid #334155; transition: 0.2s;
+}
+
+.url-input-wrapper:focus-within { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
+
+.url-icon { font-size: 1.2rem; color: #60a5fa; }
+
+#longUrl {
+    flex: 1; background: transparent; border: none; padding: 1rem 0.2rem;
+    font-size: 1rem; color: #f1f5f9; outline: none; font-weight: 500;
+}
+
+#longUrl::placeholder { color: #64748b; }
+
+.btn-shorten {
+    background: linear-gradient(95deg, #3b82f6, #2563eb); border: none;
+    border-radius: 60px; padding: 0.8rem 1.7rem; font-weight: 600; font-size: 0.95rem;
+    color: white; display: flex; align-items: center; gap: 10px; cursor: pointer;
+    transition: 0.2s; box-shadow: 0 4px 8px rgba(37,99,235,0.3);
+}
+
+.btn-shorten:hover { background: linear-gradient(95deg, #2563eb, #1d4ed8); transform: scale(0.98); }
+
+.custom-input-wrapper {
+    margin-top: 10px; display: flex; align-items: center; gap: 10px; background: #1e293b;
+    border-radius: 60px; padding: 0.4rem 0.4rem 0.4rem 1rem; border: 1px solid #334155; transition: 0.2s;
+}
+
+.custom-input-wrapper:focus-within { border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59,130,246,0.2); }
+
+.custom-icon { font-size: 1.1rem; color: #60a5fa; }
+
+#customAlias {
+    flex: 1; background: transparent; border: none; padding: 1rem 0.2rem;
+    font-size: 1rem; color: #f1f5f9; outline: none; font-weight: 500;
+}
+
+#customAlias::placeholder { color: #64748b; }
+
+.hint { color: #64748b; font-size: 0.75rem; padding-right: 1rem; white-space: nowrap; }
+
+.error-message {
+    margin-top: 0.8rem; font-size: 0.85rem; color: #f87171;
+    background: rgba(248,113,113,0.1); padding: 0.6rem 1rem; border-radius: 50px; display: inline-block;
+}
+
+.result-card {
+    margin-top: 2rem; background: #0a0f1c; border-radius: 1.5rem;
+    padding: 1.3rem 1.5rem; border-left: 4px solid #3b82f6;
+    animation: fadeSlideUp 0.25s ease-out;
+}
+
+.result-header { display: flex; align-items: center; gap: 8px; margin-bottom: 1rem; color: #9ca3af; font-size: 0.85rem; }
+
+.success-icon { color: #22c55e; }
+
+.original-url-row {
+    display: flex; align-items: center; gap: 10px; background: #111827;
+    padding: 0.7rem 1rem; border-radius: 20px; margin-bottom: 0.8rem;
+}
+
+.original-url-row i { color: #94a3b8; }
+
+.original-url-display {
+    flex: 1; font-size: 0.9rem; color: #94a3b8; text-decoration: none;
+    word-break: break-all; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+.short-link-row {
+    display: flex; align-items: center; gap: 12px; background: #1f2937;
+    padding: 0.7rem 1rem; border-radius: 60px; margin-bottom: 0.8rem;
+}
+
+.link-icon { color: #60a5fa; }
+
+.short-url-display {
+    flex: 1; font-size: 1rem; font-weight: 600; color: #3b82f6;
+    text-decoration: none; word-break: break-all;
+}
+
+.short-url-display:hover { text-decoration: underline; }
+
+.copy-btn {
+    background: #2563eb; border: none; padding: 0.5rem 1.2rem; border-radius: 40px;
+    font-size: 0.8rem; font-weight: 500; color: white; cursor: pointer; display: flex; align-items: center; gap: 8px;
+}
+
+.copy-btn:hover { background: #1d4ed8; }
+
+.qr-row { text-align: center; margin-top: 0.5rem; }
+
+.qr-btn {
+    background: #334155; border: 1px solid #475569; color: #cbd5e6;
+    padding: 0.4rem 1.5rem; border-radius: 2rem; cursor: pointer; font-size: 0.8rem;
+}
+
+.qr-btn:hover { background: #475569; color: white; }
+
+#qrCodeContainer img { max-width: 200px; height: auto; background: white; border-radius: 12px; padding: 8px; }
+
+footer { text-align: center; margin-top: 2rem; color: #64748b; font-size: 0.75rem; }
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 680px) {
+    .container { padding: 1.2rem; }
+    .card { padding: 1.5rem; }
+    .url-input-wrapper, .custom-input-wrapper {
+        flex-wrap: wrap; background: transparent; padding: 0; gap: 12px; border: none;
+    }
+    .url-icon, .custom-icon { display: none; }
+    #longUrl, #customAlias {
+        background: #1e293b; border-radius: 60px; padding: 1rem 1.2rem; width: 100%;
+    }
+    .btn-shorten { width: 100%; justify-content: center; }
+    .short-link-row { flex-direction: column; align-items: stretch; }
+    .copy-btn { justify-content: center; }
+    .hint { width: 100%; text-align: center; padding: 0; }
+    .original-url-display { white-space: normal; }
+}

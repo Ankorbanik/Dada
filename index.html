@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShortLinker | কাস্টম URL Shortener</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+                    <i class="fas fa-link logo-icon"></i>
+                    <h1>Short<span>Linker</span></h1>
+                </div>
+                <p class="tagline">নিজের ইচ্ছামতো শব্দ বা সংখ্যা দিয়ে লিংক ছোট করুন</p>
+            </div>
+
+            <div class="card">
+                <div class="input-area">
+                    <div class="url-input-wrapper">
+                        <i class="fas fa-globe url-icon"></i>
+                        <input type="url" id="longUrl" placeholder="https://example.com/আপনার-লম্বা-লিংক" autocomplete="off">
+                        <button id="shortenBtn" class="btn-shorten">
+                            <i class="fas fa-scissors"></i> <span>Shorten</span>
+                        </button>
+                    </div>
+
+                    <div class="custom-input-wrapper">
+                        <i class="fas fa-pen custom-icon"></i>
+                        <input type="text" id="customAlias" placeholder="নিজের কাস্টম কোড (যেমন: my-offer)" autocomplete="off">
+                        <small class="hint">(খালি রাখলে অটো জেনারেট)</small>
+                    </div>
+
+                    <div id="errorMsg" class="error-message"></div>
+                </div>
+
+                <div id="result" class="result-card" style="display: none;">
+                    <div class="result-header">
+                        <i class="fas fa-check-circle success-icon"></i>
+                        <span>সফলভাবে শর্ট হয়েছে!</span>
+                    </div>
+                    <div class="original-url-row">
+                        <i class="fas fa-external-link-alt"></i>
+                        <a href="#" id="originalLink" target="_blank" class="original-url-display"></a>
+                    </div>
+                    <div class="short-link-row">
+                        <i class="fas fa-link link-icon"></i>
+                        <a href="#" id="shortLink" target="_blank" class="short-url-display"></a>
+                        <button id="copyBtn" class="copy-btn">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <div class="qr-row">
+                        <button id="qrBtn" class="qr-btn">
+                            <i class="fas fa-qrcode"></i> QR কোড দেখুন
+                        </button>
+                    </div>
+                    <div id="qrCodeContainer" style="display: none; margin-top: 10px; text-align: center;"></div>
+                </div>
+            </div>
+            <footer>
+                <p><i class="far fa-clock"></i> সম্পূর্ণ ফ্রি শর্টনার</p>
+                <p><a href="manage.php" style="color:#60a5fa; font-size:0.8rem;">সব লিংক দেখুন</a></p>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@4/dist/fp.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
